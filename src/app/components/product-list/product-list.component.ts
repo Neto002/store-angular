@@ -11,6 +11,7 @@ import { ProductService } from './../../services/product.service';
 export class ProductListComponent {
   products: Product[] = [];
   currentCategoryId: number = 1;
+  currentCategoryName: string = '';
 
   constructor(
     private productService: ProductService,
@@ -28,15 +29,17 @@ export class ProductListComponent {
 
     if (hasCategoryId) {
       this.currentCategoryId = +this.route.snapshot.paramMap.get('id')!;
+      this.currentCategoryName = this.route.snapshot.paramMap.get('name')!;
     } else {
       this.currentCategoryId = 1;
+      this.currentCategoryName = 'Books';
     }
 
     this.productService
       .getProductList(this.currentCategoryId)
       .subscribe((data) => {
+        console.log('Products: ', data);
         this.products = data;
-        console.log(this.products);
       });
   }
 }
