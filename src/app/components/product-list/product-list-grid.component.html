@@ -2,8 +2,13 @@
   <div class="section-content section-content-p30">
     <div class="container-fluid">
       <div class="row">
-        <h4>Category: {{ currentCategoryName }}</h4>
-        <hr />
+        <div *ngIf="!this.searchMode; else inSearchMode">
+          <h4>Category: {{ currentCategoryName }}</h4>
+          <hr />
+        </div>
+        <ng-template #inSearchMode>
+          <h4>Showing results for: "{{ this.getSearchKeyword() }}"</h4>
+        </ng-template>
         <div *ngFor="let product of products" class="col-md-3">
           <div class="product-box">
             <img
@@ -15,6 +20,13 @@
             <div class="price">{{ product.unitPrice | currency }}</div>
             <a href="#" class="primary-btn text-decoration-none">Add to cart</a>
           </div>
+        </div>
+        <div
+          *ngIf="products?.length == 0"
+          class="alert alert-warning col-md-12"
+          role="alert"
+        >
+          No products found.
         </div>
       </div>
     </div>
