@@ -11,18 +11,23 @@
         </ng-template>
         <div *ngFor="let product of products" class="col-md-3">
           <div class="product-box">
-            <img
-              src="{{ product.imageUrl }}"
-              alt="image"
-              class="img-responsive"
-            />
-            <h1>{{ product.name }}</h1>
+            <a routerLink="/products/{{ product.id }}">
+              <img
+                src="{{ product.imageUrl }}"
+                alt="image"
+                class="img-responsive"
+              />
+            </a>
+            <br />
+            <a routerLink="/products/{{ product.id }}">
+              <h1>{{ product.name }}</h1>
+            </a>
             <div class="price">{{ product.unitPrice | currency }}</div>
-            <a href="#" class="primary-btn text-decoration-none">Add to cart</a>
+            <a href="#">Add to cart</a>
           </div>
         </div>
         <div
-          *ngIf="products?.length == 0"
+          *ngIf="products?.length == 0 && this.searchMode"
           class="alert alert-warning col-md-12"
           role="alert"
         >
