@@ -12,6 +12,8 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { SearchComponent } from './components/search/search.component';
 import { ProductService } from './services/product.service';
+import { CartStatusComponent } from './components/cart-status/cart-status.component';
+import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 
 registerLocaleData(ptBr);
 
@@ -22,6 +24,8 @@ registerLocaleData(ptBr);
     ProductCategoryMenuComponent,
     SearchComponent,
     ProductDetailsComponent,
+    CartStatusComponent,
+    CartDetailsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgbPagination],
   providers: [
