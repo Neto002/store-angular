@@ -5,9 +5,9 @@ import { map } from 'rxjs/operators';
 import {
   GetResponseProductCategory,
   GetResponseProducts,
-} from '../common/get-response';
-import { Product } from '../common/product';
-import { ProductCategory } from '../common/product-category';
+} from '../../common/get-response';
+import { Product } from '../../common/product';
+import { ProductCategory } from '../../common/product-category';
 
 @Injectable({
   providedIn: 'root',

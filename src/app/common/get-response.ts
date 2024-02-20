@@ -1,26 +1,39 @@
+import { Country } from './country';
 import { Product } from './product';
 import { ProductCategory } from './product-category';
+import { State } from './state';
 
 export interface GetResponseProducts {
   _embedded: {
     products: Product[];
   };
-  page: {
-    size: number;
-    totalElements: number;
-    totalPages: number;
-    number: number;
-  };
+  page: Page;
 }
 
 export interface GetResponseProductCategory {
   _embedded: {
     productCategory: ProductCategory[];
   };
-  page: {
-    size: number;
-    totalElements: number;
-    totalPages: number;
-    number: number;
+  page: Page;
+}
+
+export interface GetResponseCountries {
+  _embedded: {
+    countries: Country[];
   };
+  page: Page;
+}
+
+export interface GetResponseStates {
+  _embedded: {
+    states: State[];
+  };
+  page: Page;
+}
+
+export interface Page {
+  size: number;
+  totalElements: number;
+  totalPages: number;
+  number: number;
 }

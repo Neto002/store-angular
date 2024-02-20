@@ -53,9 +53,9 @@
                     </button>
                   </div>
                 </div>
+              </div>
 
-                <br />
-
+              <div>
                 <button
                   (click)="removeItem(cartItem)"
                   class="btn btn-primary btn-sm"
@@ -76,6 +76,11 @@
               <p>Total Quantity: {{ totalQuantity }}</p>
               <p>Shipping: Free</p>
               <p>Total Price: {{ totalPrice | currency }}</p>
+              <div>
+                <a routerLink="/checkout" class="btn btn-primary btn-sm">
+                  Checkout
+                </a>
+              </div>
             </td>
           </tr>
         </table>
