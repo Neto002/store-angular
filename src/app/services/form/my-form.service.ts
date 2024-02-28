@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map, of } from 'rxjs';
+import { environment } from '../../../environments/environment';
 import { Country } from '../../common/country';
 import {
   GetResponseCountries,
@@ -12,8 +13,8 @@ import { State } from '../../common/state';
   providedIn: 'root',
 })
 export class MyFormService {
-  private countriesUrl = 'http://localhost:8080/api/countries';
-  private statesUrl = 'http://localhost:8080/api/states';
+  private countriesUrl = environment.apiUrl + '/countries';
+  private statesUrl = environment.apiUrl + '/states';
 
   constructor(private httpClient: HttpClient) {}
 

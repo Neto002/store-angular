@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { environment } from '../../../environments/environment';
 import {
   GetResponseProductCategory,
   GetResponseProducts,
@@ -13,8 +14,8 @@ import { ProductCategory } from '../../common/product-category';
   providedIn: 'root',
 })
 export class ProductService {
-  private productsUrl = 'http://localhost:8080/api/products';
-  private productCategoriesUrl = 'http://localhost:8080/api/product-category';
+  private productsUrl = environment.apiUrl + '/products';
+  private productCategoriesUrl = environment.apiUrl + '/product-category';
 
   constructor(private httpClient: HttpClient) {}
 
