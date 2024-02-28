@@ -28,6 +28,8 @@ export class ProductService {
       `${this.productsUrl}/search/findByCategoryId` +
       `?id=${categoryId}&page=${page}&size=${pageSize}`;
 
+    console.log(environment.apiUrl);
+
     return this.httpClient.get<GetResponseProducts>(url);
   }
 
