@@ -1,3 +1,4 @@
+import { OrderHistory } from './checkout/order-history';
 import { Country } from './country';
 import { Product } from './product';
 import { ProductCategory } from './product-category';
@@ -27,6 +28,13 @@ export interface GetResponseCountries {
 export interface GetResponseStates {
   _embedded: {
     states: State[];
+  };
+  page: Page;
+}
+
+export interface GetResponseOrderHistory {
+  _embedded: {
+    orders: OrderHistory[];
   };
   page: Page;
 }

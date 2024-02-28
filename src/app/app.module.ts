@@ -22,6 +22,7 @@ import { SearchComponent } from './components/util/search/search.component';
 import myAppConfig from './config/my-app-config';
 import { ProductService } from './services/product/product.service';
 import { MembersPageComponent } from './components/members-page/members-page.component';
+import { OrderHistoryComponent } from './components/order-history/order-history.component';
 
 registerLocaleData(ptBr);
 const oktaConfig = myAppConfig.oidc;
@@ -40,6 +41,7 @@ const oktaAuth = new OktaAuth(oktaConfig);
     LoginComponent,
     LoginStatusComponent,
     MembersPageComponent,
+    OrderHistoryComponent,
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@ import { CartDetailsComponent } from './components/cart/cart-details/cart-detail
 import { CheckoutComponent } from './components/forms/checkout/checkout.component';
 import { LoginComponent } from './components/login/login.component';
 import { MembersPageComponent } from './components/members-page/members-page.component';
+import { OrderHistoryComponent } from './components/order-history/order-history.component';
 import { ProductDetailsComponent } from './components/product/product-details/product-details.component';
 import { ProductListComponent } from './components/product/product-list/product-list.component';
 
@@ -16,6 +17,12 @@ function sentToLoginPage(oktaAuth: OktaAuth, injector: Injector) {
 }
 
 const routes: Routes = [
+  {
+    path: 'order-history',
+    component: OrderHistoryComponent,
+    canActivate: [OktaAuthGuard],
+    data: { onAuthRequired: sentToLoginPage },
+  },
   {
     path: 'members',
     component: MembersPageComponent,
