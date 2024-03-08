@@ -14,8 +14,8 @@ import { ProductCategory } from '../../common/product-category';
   providedIn: 'root',
 })
 export class ProductService {
-  private productsUrl = environment.apiUrl + '/products';
-  private productCategoriesUrl = environment.apiUrl + '/product-category';
+  private productsUrl = `${environment.apiUrl}/products`;
+  private productCategoriesUrl = `${environment.apiUrl}/product-category`;
 
   constructor(private httpClient: HttpClient) {}
 
@@ -28,7 +28,7 @@ export class ProductService {
       `${this.productsUrl}/search/findByCategoryId` +
       `?id=${categoryId}&page=${page}&size=${pageSize}`;
 
-    console.log(environment.apiUrl);
+    console.log(url);
 
     return this.httpClient.get<GetResponseProducts>(url);
   }
