@@ -27,6 +27,7 @@ import { ProductService } from './services/product/product.service';
 
 registerLocaleData(ptBr);
 const oktaConfig = myAppConfig.oidc;
+console.log(oktaConfig.issuer);
 const oktaAuth = new OktaAuth(oktaConfig);
 
 @NgModule({
