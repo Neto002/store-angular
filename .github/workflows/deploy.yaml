@@ -40,6 +40,11 @@ jobs:
     steps:
       - name: SSH into the server and deploy
         uses: appleboy/ssh-action@master
+        env:
+          API_URL: ${{ secrets.API_URL }}
+          OKTA_CLIENT_ID: ${{ secrets.OKTA_CLIENT_ID }}
+          OKTA_ISSUER: ${{ secrets.OKTA_ISSUER }}
+          STRIPE_SECRET: ${{ secrets.STRIPE_SECRET }}
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USERNAME }}
@@ -50,9 +55,9 @@ jobs:
             docker rm -f store-frontend
             docker images | grep '${{ secrets.DOCKER_USERNAME }}/store-frontend' | awk '{print $3}' | xargs docker rmi
             docker run -d -p 4200:4200 \
-            -e API_URL='${{ secrets.API_URL }}' \
-            -e OKTA_CLIENT_ID='${{ secrets.OKTA_CLIENT_ID }}' \
-            -e OKTA_ISSUER='${{ secrets.OKTA_ISSUER }}' \
-            -e STRIPE_SECRET='${{ secrets.STRIPE_SECRET }}' \
+            -e API_URL='$API_URL' \
+            -e OKTA_CLIENT_ID='$OKTA_CLIENT_ID' \
+            -e OKTA_ISSUER='$OKTA_ISSUER' \
+            -e STRIPE_SECRET='$STRIPE_SECRET' \
             --name store-frontend \
             ${{ secrets.DOCKER_USERNAME }}/store-frontend:latest

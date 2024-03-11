@@ -2,7 +2,7 @@
 FROM node:20.11.1-slim AS build-stage
 
 # Define as variáveis de ambiente
-ENV API_URL=http://localhost:8080/api
+ENV API_URL=${API_URL}
 ENV OKTA_CLIENT_ID=0oafermffofR9gNdQ5d7
 ENV OKTA_ISSUER=https://dev-56346414.okta.com/oauth2/default
 ENV STRIPE_SECRET=pk_test_51OodOHAJv5ulnNr72csryxkwytYKUkHHmaVMAR547UfkcZI3jtnFiIymKwK7WtyLCeehGsZu6q0MpdZoS4dljFHc00642aj98z
@@ -12,7 +12,7 @@ WORKDIR /app
 
 # Copia os arquivos necessários e instala as dependências
 COPY . .
-RUN npm install
+RUN npm install --save-dev
 RUN npm run build
 
 # Configura um servidor HTTP simples para servir o aplicativo Angular
