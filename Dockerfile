@@ -3,9 +3,9 @@ FROM node:20.11.1-slim AS build-stage
 
 # Define as variáveis de ambiente
 ENV API_URL=${API_URL}
-ENV OKTA_CLIENT_ID=0oafermffofR9gNdQ5d7
-ENV OKTA_ISSUER=https://dev-56346414.okta.com/oauth2/default
-ENV STRIPE_SECRET=pk_test_51OodOHAJv5ulnNr72csryxkwytYKUkHHmaVMAR547UfkcZI3jtnFiIymKwK7WtyLCeehGsZu6q0MpdZoS4dljFHc00642aj98z
+ENV OKTA_CLIENT_ID=${OKTA_CLIENT_ID}
+ENV OKTA_ISSUER=${OKTA_ISSUER}
+ENV STRIPE_SECRET=${STRIPE_SECRET}
 
 # Define o diretório de trabalho dentro do contêiner
 WORKDIR /app
