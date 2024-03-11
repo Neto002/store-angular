@@ -1,8 +1,8 @@
 export default {
   oidc: {
-    clientId: '${OKTA_CLIENT_ID}',
-    issuer: '${OKTA_ISSUER}',
-    redirectUri: '${OKTA_REDIRECT_URL}',
+    clientId: process.env['OKTA_CLIENT_ID'],
+    issuer: process.env['OKTA_ISSUER'],
+    redirectUri: 'https://localhost:4200/login/callback',
     scopes: ['openid', 'profile', 'email'],
   },
 };
