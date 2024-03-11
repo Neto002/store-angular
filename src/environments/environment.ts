@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
-  apiUrl: '${API_URL}',
-  stripePublishableKey: '${STRIPE_SECRET}',
+  apiUrl: process.env['API_URL'],
+  stripePublishableKey: process.env['STRIPE_SECRET'],
 };
