@@ -28,7 +28,7 @@ jobs:
 
       - name: Replace environment variables
         run: |
-          sed -i "s/\$OKTA_CLIENT_ID/${{ secrets.OKTA_CLIENT_ID }}/g" $GITHUB_WORKSPACE/src/config/my-app-config.ts
+          sed -i "s/\$OKTA_CLIENT_ID/${{ secrets.OKTA_CLIENT_ID }}/g" $GITHUB_WORKSPACE/src/app/config/my-app-config.ts
           sed -i "s/\$OKTA_ISSUER/${{ secrets.OKTA_ISSUER }}/g" $GITHUB_WORKSPACE/src/config/my-app-config.ts
           sed -i "s/\$API_URL/${{ secrets.API_URL }}/g" $GITHUB_WORKSPACE/src/environments/environment.ts
           sed -i "s/\$API_URL/${{ secrets.API_URL }}/g" $GITHUB_WORKSPACE/src/environments/environment.prod.ts
