@@ -1,12 +1,6 @@
 # Use a imagem do Node como base
 FROM node:20.11.1-slim AS build-stage
 
-# Define as variáveis de ambiente
-ENV API_URL=${API_URL}
-ENV OKTA_CLIENT_ID=${OKTA_CLIENT_ID}
-ENV OKTA_ISSUER=${OKTA_ISSUER}
-ENV STRIPE_SECRET=${STRIPE_SECRET}
-
 # Define o diretório de trabalho dentro do contêiner
 WORKDIR /app
 
