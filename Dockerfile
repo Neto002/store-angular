@@ -12,6 +12,7 @@ WORKDIR /app
 
 # Copia os arquivos necessários e instala as dependências
 COPY . .
+RUN npm install --save-dev @types/node
 RUN npm install --save-dev
 RUN npm run build
 
