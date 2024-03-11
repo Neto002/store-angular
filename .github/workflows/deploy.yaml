@@ -26,14 +26,14 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Replacing environment variables
+      - name: Replace environment variables
         run: |
-          sed -i "s/\$API_URL/${{secrets.API_URL}}/g" ${{github.workspace}}/src/environments/environment.prod.ts
-          sed -i "s/\$API_URL/${{secrets.API_URL}}/g" ${{github.workspace}}/src/environments/environment.ts
-          sed -i "s/\$STRIPE_SECRET/${{secrets.STRIPE_SECRET}}/g" ${{github.workspace}}/src/environments/environment.ts
-          sed -i "s/\$STRIPE_SECRET/${{secrets.STRIPE_SECRET}}/g" ${{github.workspace}}/src/environments/environment.prod.ts
-          sed -i "s/\$OKTA_CLIENT_ID/${{ secrets.OKTA_CLIENT_ID }}/g" ${{github.workspace}}/src/config/my-app-config.ts
-          sed -i "s/\$OKTA_ISSUER/${{ secrets.OKTA_ISSUER }}/g" ${{github.workspace}}/src/config/my-app-config.ts
+          sed -i "s/\$OKTA_CLIENT_ID/${{ secrets.OKTA_CLIENT_ID }}/g" $GITHUB_WORKSPACE/src/config/my-app-config.ts
+          sed -i "s/\$OKTA_ISSUER/${{ secrets.OKTA_ISSUER }}/g" $GITHUB_WORKSPACE/src/config/my-app-config.ts
+          sed -i "s/\$API_URL/${{ secrets.API_URL }}/g" $GITHUB_WORKSPACE/src/environments/environment.ts
+          sed -i "s/\$API_URL/${{ secrets.API_URL }}/g" $GITHUB_WORKSPACE/src/environments/environment.prod.ts
+          sed -i "s/\$STRIPE_SECRET/${{ secrets.STRIPE_SECRET }}/g" $GITHUB_WORKSPACE/src/environments/environment.ts
+          sed -i "s/\$STRIPE_SECRET/${{ secrets.STRIPE_SECRET }}/g" $GITHUB_WORKSPACE/src/environments/environment.prod.ts
 
       - name: Build Docker images
         run: |
